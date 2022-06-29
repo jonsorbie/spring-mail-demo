@@ -41,6 +41,7 @@ public class GmailMailer implements CommandLineRunner {
             "<br>John Hancock" +
             "<p><img src='cid:" + imageContentId + "'>" +
             "</body></html>";
+        // According to spring documentation, setText() must be called before addInline()
         helper.setText(body, true);
         Resource resource = new ClassPathResource("/images/john_hancock.jpg");
         helper.addInline(imageContentId, resource);
